@@ -1,0 +1,20 @@
+img {
+    max-width: 100%;
+    height: auto;
+}
+.ql-container {
+    background-color: white;
+}
+
+.ql-editor {
+    background-color: white;
+    color: black; 
+}
+
+.ql-toolbar{
+    color: white; /* Set toolbar text color to black */
+}
+
+.ql-toolbar {
+    background-color: white;
+}
