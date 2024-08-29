@@ -30,6 +30,7 @@ const addAnswer = async (currAnswer,user,id) => {
     const data = { user, ...currAnswer };
     return await axios.post(`${API_URL}/addanswer/${id}`,data,{
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         }
     });
@@ -39,6 +40,7 @@ const addAnswer = async (currAnswer,user,id) => {
 const answerDownvote = async (id) => {
     const response = await axios.put(`${API_URL}/downvote/${id}`, {
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         },
     });
@@ -49,6 +51,7 @@ const answerDownvote = async (id) => {
 const answerUpvote = async (id) => {
     const response = await axios.put(`${API_URL}/upvote/${id}`, {
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         },
     });
@@ -70,6 +73,7 @@ const fetchUserAnsweredQuestion = async (user) => {
     const response = await axios.get(`${API_URL}/fetchUserAnsweredQuestions`, {
         params: user,//cant send it as a body due to get request(only possible in post request)
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         }
     });
@@ -85,6 +89,7 @@ const fetchUserFilteredAnswers = async (data,user) => {
             ...data // Merge user and data objects into query parameters
         },//cant send it as a body due to get request(only possible in post request)
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         }
     });
@@ -96,6 +101,7 @@ const fetchAllFilteredAnswers = async (data) => {
     const response = await axios.get(`${API_URL}/fetchAllFilteredAnswers`, {
         params: data,
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         }
     });
@@ -106,6 +112,7 @@ const fetchAllFilteredAnswers = async (data) => {
 const fetchOneUserAnswers = async (user) => {
     const response = await axios.get(`${API_URL}/fetchUserAnswers/${user.username}`, {
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         }
     });
@@ -146,6 +153,7 @@ const givenAllAnswersTags = async () => {
 const deleteAns = async (id) => {
     const response = await axios.delete(`${API_URL}/deleteanswer/${id}`, {
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         },
     });

@@ -8,6 +8,7 @@ const API_URL = 'https://techhub-backend.onrender.com/admin';
 const fetchAllUsers = async () => {
     const response = await axios.get(`${API_URL}/users`, {
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         }
     });
@@ -18,6 +19,7 @@ const fetchAllUsers = async () => {
 const deleteOneUser = async (id) => {
     const response = await axios.delete(`${API_URL}/deleteUser/${id}`, {
         headers: {
+            'Authorization': sessionStorage.getItem('accessToken'),
             'Content-Type': 'application/json'
         }
     });
