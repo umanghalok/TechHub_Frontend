@@ -90,7 +90,7 @@ export default function Posts({ posts }) {
               </Typography>
               <Box display="flex" justifyContent="flex-end">
                 <Typography variant="caption" sx={{ color: '#0074CC' }}>
-                  {question.postedBy}
+                  {question.user.username}
                 </Typography>
                 <Typography variant="caption" sx={{ ml: 1 }}>
                   asked {question.date.slice(0, 10)}
