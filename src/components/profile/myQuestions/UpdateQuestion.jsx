@@ -36,13 +36,14 @@ const UpdateQuestion = () => {
     };
 
     const onEditorChange = (content) => {
-        setQuestion({ ...content, content: content });
-    };
+        setQuestion({ ...question, content }); // Update only the content
+    };    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const data = { title: question.title, question: question.question, tags: question.tags };
+            const data = { title: question.title, question: question.content, tags: question.tags };
+            console.log(data);
             const response = await updateQuestion(id, data);
             if (response.status === 200) {
                 setError('');
